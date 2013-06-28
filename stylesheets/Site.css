@@ -1,12 +1,22 @@
-﻿
-html {
+﻿html {
     text-align: center;
     margin: 0;
     padding: 0;
     text-transform: uppercase;
     font-family: "Myriad Pro", Arial, Helvetica, sans-serif;
     background-color: #777;
+}
 
+* {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #body {
@@ -45,4 +55,14 @@ div.expli {
 
 label.ui-state-active {
     background-color: #1e7d09;
+}
+
+input {
+    display: none;
+}
+
+a {
+    font-family: 'Comic Sans MS';
+    color: white;
+    text-decoration: none;  
 }

@@ -1,27 +1,21 @@
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title></title>
-    <link href="stylesheets/Site.css" rel="stylesheet"/>
-
-    <link href="/Content/themes/base/jquery.ui.base.css" rel="stylesheet"/>
-
-    <script src="/Scripts/modernizr-2.6.2.js"></script>
-
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
+    <link href="stylesheets/site.css" rel="stylesheet" />
+    <script src="scripts/jquery-1.10.1.js"></script>
+    <script src="scripts/jquery-ui.js"></script>
+    <script src="scripts/jquery.cookie.js"></script>
 </head>
 <body>
     <header>
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
-                    <a href="/">ASP.NET Web API</a></p>
+                    <a href="/">ASP.NET Web API</a>
+                </p>
             </div>
             <div class="float-right">
                 <nav>
@@ -34,45 +28,48 @@
         </div>
     </header>
     <div id="body">
-    <div class="expli">A passagem de ônibus é</div>
-    <b>
-        <p style="font-size: 40px;">
-            R$<span style="display: inline-block; vertical-align: middle; font-size: 70px; margin-top: -10px;">2.85</span>
-        </p>
-    </b>
-    <div class="expli">Vamos fazer um teste
+        <div class="expli">A passagem de ônibus é</div>
+        <b>
+            <p style="font-size: 40px;">
+                R$<span style="display: inline-block; vertical-align: middle; font-size: 70px; margin-top: -10px;">2.85</span>
+            </p>
+        </b>
+        <div class="expli">
+            Vamos fazer um teste
         <br />
-        se nosso governo decidisse:</div>
-    <input type="checkbox" id="opImpostoTarifa" class="opcao" /><label for="opImpostoTarifa" title="Reduz a passagem em R$0,15" tarifareducao="0.15" opcao="1">Isentar impostos</label>
-    <br />
-    <input type="checkbox" id="opSistemaAutomatizado" class="opcao" /><label for="opSistemaAutomatizado" title="Reduz a passagem em R$0,25" tarifareducao="0.25" opcao="2">Implementar sistema automatizado sem cobradores</label>
-    <br />
-    <input type="checkbox" id="opRetirarIsencoes" class="opcao" /><label for="opRetirarIsencoes" title="Reduz a passagem em R$0,35" tarifareducao="0.35" opcao="3">Retirar isenções</label>
-    <br />
-    <input type="checkbox" id="opRetirarDescontoEstudante" class="opcao" /><label for="opRetirarDescontoEstudante" title="Reduz a passagem em R$0,25" tarifareducao="0.45" opcao="4">Retirar desconto de estudante</label>
-    <br />
-    <input type="checkbox" id="opArCondicionado" class="opcao" /><label for="opArCondicionado" title="Reduz a passagem em R$0,25" tarifareducao="0.55" opcao="5">Instalar ar-condicionado em todos os carros</label>
-    <br />
-    <input type="checkbox" id="opRetirarDiaDePasseLivre" class="opcao" /><label for="opRetirarDiaDePasseLivre" title="Reduz a passagem em R$0,25" tarifareducao="0.65" opcao="6">Retirar o dia do passe livre</label>
-    <br />
-    <input type="checkbox" id="opRetirarPassagemIntegrada" class="opcao" /><label for="opRetirarPassagemIntegrada" title="Reduz a passagem em R$0,25" tarifareducao="0.75" opcao="7">Retirar a passagem integrada</label>
-    <br />
-    <div class="expli">A passagem fica</div>
-    <b>
-        <p style="font-size: 40px;">
-            R$<span id="tarifaFinal" style="display: inline-block; vertical-align: middle; font-size: 70px; margin-top: -10px;">2.85</span>
-        </p>
-    </b>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" target="_blank">Share on Facebook
-    </a>
-</div>
-
-
-
-    
-    
+            se nosso governo decidisse:
+        </div>
+        <input type="checkbox" id="opImpostoTarifa" class="opcao" /><label for="opImpostoTarifa" title="Reduz a passagem em R$0,15" tarifareducao="0.15" opcao="1">Isentar impostos</label>
+        <br />
+        <input type="checkbox" id="opSistemaAutomatizado" class="opcao" /><label for="opSistemaAutomatizado" title="Reduz a passagem em R$0,25" tarifareducao="0.25" opcao="2">Implementar sistema automatizado sem cobradores</label>
+        <br />
+        <input type="checkbox" id="opRetirarIsencoes" class="opcao" /><label for="opRetirarIsencoes" title="Reduz a passagem em R$0,35" tarifareducao="0.35" opcao="3">Retirar isenções</label>
+        <br />
+        <input type="checkbox" id="opRetirarDescontoEstudante" class="opcao" /><label for="opRetirarDescontoEstudante" title="Reduz a passagem em R$0,25" tarifareducao="0.45" opcao="4">Retirar desconto de estudante</label>
+        <br />
+        <input type="checkbox" id="opArCondicionado" class="opcao" /><label for="opArCondicionado" title="Reduz a passagem em R$0,25" tarifareducao="0.55" opcao="5">Instalar ar-condicionado em todos os carros</label>
+        <br />
+        <input type="checkbox" id="opRetirarDiaDePasseLivre" class="opcao" /><label for="opRetirarDiaDePasseLivre" title="Reduz a passagem em R$0,25" tarifareducao="0.65" opcao="6">Retirar o dia do passe livre</label>
+        <br />
+        <input type="checkbox" id="opRetirarPassagemIntegrada" class="opcao" /><label for="opRetirarPassagemIntegrada" title="Reduz a passagem em R$0,25" tarifareducao="0.75" opcao="7">Retirar a passagem integrada</label>
+        <br />
+        <div class="expli">A passagem fica</div>
+        <b>
+            <p style="font-size: 40px;">
+                R$<span id="tarifaFinal" style="display: inline-block; vertical-align: middle; font-size: 70px; margin-top: -10px;">2.85</span>
+            </p>
+        </b>
+        <a id="linkShare" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" target="_blank">Share on Facebook
+        </a>
+    </div>
     <script>
         $(document).ready(function () {
+            if (!$.cookie('ui')) {
+                var uiRandom = Math.floor((Math.random() * 1000 * 1000 * 1000 * 1000 * 1000) + 1);;
+                $.cookie('ui', uiRandom);
+            } 
+            ui = $.cookie('ui');
+
             $('.opcao').button().click(function () {
                 tarifaFinalUpdate();
             });
@@ -88,7 +85,11 @@
             });
             var tarifaFinal = formatnum(2.85 - sum);
             $("#tarifaFinal").html(tarifaFinal);
+            
+            var urlParam = generateFacebookShareLink(opcoes);
+            $("#linkShare").attr("href", urlParam);
 
+            return;
             $.ajax({
                 url: 'http://localhost:17465/api/values/5',
                 type: 'PUT',
@@ -115,7 +116,19 @@
 
             return inteiro + '.' + cents;
         }
-    </script>
 
+        var ui, proposta;
+        function generateFacebookShareLink(paramProposta, paramUi) {
+            var paramPropostab64 = btoa(paramProposta);
+            var paramUi = btoa(paramUi);
+
+            var urlBase = "http://atlanta.inf.ufrgs.br/tarifa/index.html?";
+            var url = urlBase + "p=" + paramPropostab64 + "&u=" + ui;
+            var urlUriEncoded = encodeURIComponent(url);
+            var finalUrl = "https://www.facebook.com/sharer/sharer.php?u=" + urlUriEncoded;
+            console.log(finalUrl + " em " + url);
+            return finalUrl;
+        }
+    </script>
 </body>
 </html>
