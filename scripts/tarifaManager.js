@@ -20,8 +20,11 @@ function tarifaManager () {
             var userIdRandom = Math.floor((Math.random() * Math.pow(10, 13) + 1));
             $.cookie(USERID, userIdRandom);
         }
-        userId = $.cookie(USERID);
-        return userId;
+        var cId = $.cookie(USERID);
+        if (cId == null) {
+            cId = 321;
+        }
+        return cId;
     }
     this.getOpcoes = function () {
         var opcoes = [0];
@@ -48,21 +51,8 @@ function tarifaManager () {
         $("#linkShare").attr("href", urlParam);
         $("#tarifaFinal").html(tarifa);
 
-        return;
-        //Já vou criar o branch, to limpando outras coisas. Nao deletar! dscain
-        $.ajax({
-            url: 'http://localhost:17465/api/values/5',
-            type: 'PUT',
-            contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-            data: '=' + encodeURIComponent(opcoes.join(',')),
-            success: function (data) {
-            },
-            error: function (result) {
-                if (console) {
-                    console.log(result);
-                }
-            }
-        });
+        var cId = this.getUserid();
+        stat(cId, opcoes.join(","));
     }
 
     function formatnum(num) {
@@ -77,16 +67,22 @@ function tarifaManager () {
         return inteiro + '.' + cents;
     }
 
-    var ui, proposta;
-    function generateFacebookShareLink(paramProposta, paramUi) {
-        var paramPropostab64 = btoa(paramProposta);
-        var paramUi = btoa(paramUi);
+    function generateFacebookShareLink(ops) {
+        var paramPropostab64 = btoa(ops.join(","));
 
         var urlBase = "http://matehackers.github.io/tarifa-teste/index.html?";
-        var url = urlBase + "p=" + paramPropostab64 + "&u=" + ui;
+        var url = urlBase + "p=" + paramPropostab64;
         var urlUriEncoded = encodeURIComponent(url);
         var finalUrl = "https://www.facebook.com/sharer/sharer.php?u=" + urlUriEncoded;
         console.log(finalUrl + " em " + url);
         return finalUrl;
+    }
+
+    function stat(cId, ops) {
+        var post = $('<img src="http://atlanta.inf.ufrgs.br/tarifa/api/stat/{0}/{1}/" style="width:0px;height:0px:"/>'
+            .replace("\{0\}", cId)
+            .replace("\{1\}", ops)
+            );
+
     }
 }
