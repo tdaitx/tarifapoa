@@ -24,7 +24,7 @@ function tarifaManager () {
         return userId;
     }
     this.getOpcoes = function () {
-        var opcoes = [];
+        var opcoes = [0];
         var OPCAO = "opcao";
         $('.ui-state-active').each(function (a, el) {
             opcoes.push($(el).attr(OPCAO));
