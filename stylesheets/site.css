@@ -1,0 +1,182 @@
+﻿html {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    /*text-transform: uppercase;*/
+    font-family: 'Pathway Gothic One', sans-serif;
+    background-color: #fdffd7;
+}
+
+/* * */
+.tmp {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+    -ms-user-select: none;
+    user-select: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+
+.align-left {  
+    text-align: left;   
+}
+.align-right {  
+    text-align: right;   
+}
+
+/* basic grid system
+----------------------------------------------------------*/
+.row {
+    display: block;
+    float: left;
+    width: 100%;
+    min-height: 30px;
+    -moz-box-sizing: border-box;
+}
+
+.row [class*="span"] {
+    display: block;
+    float: left;
+}
+
+.row .span12 {
+    width: 100%;
+}
+.row .span11 {
+    width: 91.45299145299145%;
+}
+.row .span10 {
+    width: 82.90598290598291%;
+}
+.row .span9 {
+    width: 74.35897435897436%;
+}
+.row .span8 {
+    width: 65.81196581196582%;
+}
+.row .span7 {
+    width: 57.26495726495726%;
+}
+.row .span6 {
+    width: 48.717948717948715%;
+}
+.row .span5 {
+    width: 40.17094017094017%;
+}
+.row .span4 {
+    width: 31.623931623931625%;
+}
+.row .span3 {
+    width: 23.076923076923077%;
+}
+.row .span2 {
+    width: 14.52991452991453%;
+}
+.row .span1 {
+    width: 5.982905982905983%;
+}
+
+/* main layout
+----------------------------------------------------------*/
+.content-wrapper {
+    /* for debug: */
+    /*background-color: rgba(0,0,0,0.1);*/
+
+    color: #577728;
+    line-height: 37px;
+    font-size: 15.32pt;
+    margin: 0 auto;
+    width: 660px;
+    padding: 30px 90px;
+}
+
+#logo {
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 137px;
+    display: block;
+    margin-bottom: 30px;
+}
+
+
+.text1 {
+    line-height: 60px;
+    font-size: 18.8pt;
+}
+.text2 {
+    line-height: 25px;
+    font-size: 15.76pt;
+    color: #9cbf32;
+}
+.text3 {
+    font-size: 39.53pt;
+}
+.text-price {
+    font-size: 94.39pt;
+    line-height: 90px;
+    display: inline-block;
+    /*vertical-align: middle;*/
+}
+.text-rs {
+    font-size: 37.79pt;
+    color: #9cbf32;
+}
+
+ul {
+    line-height: 45px;
+    list-style-type: none;
+    text-transform: lowercase;
+}
+
+label {
+    padding: 5px;
+    background-image: url("../images/bullet.png");
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    padding-left: 30px;
+}
+label.ui-state-active {
+    background-color: #1e7d09;
+    color: #fdffd7;
+}
+
+#optionsList {
+    margin-top: 20px;
+    position: relative;
+}
+
+#resultPrice {
+    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+input {
+    display: none;
+}
+
+/*a {
+    font-family: 'Comic Sans MS';
+    color: white;
+    text-decoration: none;  
+}*/
