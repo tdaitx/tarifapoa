@@ -34,7 +34,7 @@ function tarifaManager() {
         return cId;
     }
     this.getPropostasSelecionadas = function () {
-        var propostasSelecionadas = [];
+        var propostasSelecionadas = [0];
         var PROPOSTA = "opcao";
         $('.ui-state-active', this.propostas).each(function (a, el) {
             propostasSelecionadas.push($(el).attr(PROPOSTA));
@@ -75,7 +75,7 @@ function tarifaManager() {
             return "0,00";
         }
 
-        return inteiro + ',' + cents;
+        return inteiro + ',' + zero;
     }
 
     function generateFacebookShareLink(ops) {
