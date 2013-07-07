@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width" />
     <meta property="og:image" content="http://matehackers.github.io/tarifa-teste/images/share_icon.jpg" />
     <meta property="og:title" content="Título de teste" />
-    <meta property="og:description"content="Descrição de teste"/>
+    <meta property="og:description" content="Descrição de teste" />
     <title>Título da página de teste</title>
     <link href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css'>
     <link href="stylesheets/site.css" rel="stylesheet" />
-    
+
     <script src="scripts/jquery-1.10.1.js"></script>
     <script src="scripts/jquery-ui.js"></script>
     <script src="scripts/jquery.cookie.js"></script>
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-     <div class="content-wrapper">
+    <div class="content-wrapper">
 
         <center>
             <span id="logo"></span>
@@ -42,48 +42,49 @@
                 <div class="text2 align-right">
                     vários fatores influenciam nessa tarifa.<br>
                     fizemos alguns cálculos para comparar<br>
-                    o quanto cada item afeta no preço final. <br>
+                    o quanto cada item afeta no preço final.
+                    <br>
                     faça a sua simulação:
                 </div>
             </div>
         </div>
 
         <div class="row" id="optionsList">
-            <div class="span12">
+            <div class="span12 tmp">
                 <ul>
-                       <li>
+                    <li class="proposta">
                         <input type="checkbox" id="opIsentarImposto" class="opcao" />
-                        <label for="opIsentarImposto" title="Reduz a passagem em R${0}" tarifareducao="0.15" opcao="1">Isentar impostos</label>
+                        <label for="opIsentarImposto" title="Reduz a passagem em R${0}" tarifareducao="0.15" opcao="1">Isentar impostos <span>reduz a passagem em R${0}</span></label>
                     </li>
-                    <li>
+                    <li class="proposta">
                         <input type="checkbox" id="opCatracaAutomatica" class="opcao" />
-                        <label for="opCatracaAutomatica" title="Reduz a passagem em R${0}" tarifareducao="0.25" opcao="2">Implementar sistema automatizado sem cobradores</label>
+                        <label for="opCatracaAutomatica" title="Reduz a passagem em R${0}" tarifareducao="0.25" opcao="2">Implementar sistema automatizado sem cobradores<span>reduz a passagem em R${0}</span></label>
                     </li>
-                    <li>
+                    <li class="proposta">
                         <input type="checkbox" id="opSemIsentos" class="opcao" />
-                        <label for="opSemIsentos" title="Reduz a passagem em R${0}" tarifareducao="0.35" opcao="3">Retirar isenções</label>
+                        <label for="opSemIsentos" title="Reduz a passagem em R${0}" tarifareducao="0.35" opcao="3">Retirar isenções<span>reduz a passagem em R${0}</span></label>
                     </li>
-                    <li>
+                    <li class="proposta">
                         <input type="checkbox" id="opSemEstudanteIsento" class="opcao" />
-                        <label for="opSemEstudanteIsento" title="Reduz a passagem em R${0}" tarifareducao="0.45" opcao="4">Retirar desconto de estudante</label>
+                        <label for="opSemEstudanteIsento" title="Reduz a passagem em R${0}" tarifareducao="0.45" opcao="4">Retirar desconto de estudante<span>reduz a passagem em R${0}</span></label>
                     </li>
-                    <li>
+                    <li class="proposta">
                         <input type="checkbox" id="opArCondicionadoEmTodaFrota" class="opcao" />
-                        <label for="opArCondicionadoEmTodaFrota" title="Reduz a passagem em R${0}" tarifareducao="0.55" opcao="5">Instalar ar-condicionado em todos os carros</label>
+                        <label for="opArCondicionadoEmTodaFrota" title="Reduz a passagem em R${0}" tarifareducao="0.55" opcao="5">Instalar ar-condicionado em todos os carros<span>reduz a passagem em R${0}</span></label>
                     </li>
-                    <li>
+                    <li class="proposta">
                         <input type="checkbox" id="opSemDiaDoPasseLivre" class="opcao" />
-                        <label for="opSemDiaDoPasseLivre" title="Reduz a passagem em R${0}" tarifareducao="0.65" opcao="6">Retirar o dia do passe livre</label>
+                        <label for="opSemDiaDoPasseLivre" title="Reduz a passagem em R${0}" tarifareducao="0.65" opcao="6">Retirar o dia do passe livre<span>reduz a passagem em R${0}</span></label>
                     </li>
-                    <li>
+                    <li class="proposta">
                         <input type="checkbox" id="opSemPassagemIntegrada" class="opcao" />
-                        <label for="opSemPassagemIntegrada" title="Reduz a passagem em R${0}" tarifareducao="0.75" opcao="7" class="opcao">Retirar a passagem integrada</label>
+                        <label for="opSemPassagemIntegrada" title="Reduz a passagem em R${0}" tarifareducao="0.75" opcao="7" class="opcao">Retirar a passagem integrada<span>reduz a passagem em R${0}</span></label>
                     </li>
-                    <li>
+                    <li class="proposta">
                         <input type="checkbox" id="opEmpresaComLucroZero" class="opcao" />
-                        <label for="opEmpresaComLucroZero" title="Reduz a passagem em R${0}" tarifareducao="0.85" opcao="8">Tirar lucro das empresas</label>
-                    </li>       
-                </ul>                
+                        <label for="opEmpresaComLucroZero" title="Reduz a passagem em R${0}" tarifareducao="0.85" opcao="8">Tirar lucro das empresas<span>reduz a passagem em R${0}</span></label>
+                    </li>
+                </ul>
             </div>
 
             <div id="resultPrice" class="align-right">
@@ -94,9 +95,14 @@
                 </p>
             </div>
         </div>
-         <div>
-             <a  target="_blank" href="link.html"><img width="20" height="20" src="http://matehackers.github.io/tarifa-teste/images/share-button.jpg" /> SHARE!!!</a>
-         </div>
+        <div class="share">
+            <a target="_blank" href="link.html">
+                
+                compartilhe a sua proposta >
+                <img width="20" height="20" src="http://matehackers.github.io/tarifa-teste/images/share-button.jpg" />
+
+            </a>
+        </div>
     </div>
 </body>
 </html>

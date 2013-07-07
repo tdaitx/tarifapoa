@@ -1,20 +1,31 @@
 $(document).ready(function () {
     var manager = new tarifaManager();
-
-    $('input.opcao').button().click(function () {
-        var opcoes = manager.getOpcoes();
-        manager.updateUI(opcoes);
-    });
-    $('label.opcao').each(function () {
-        var titulo = $(this).attr('title');
-        var reducao = $(this).attr('tarifareducao');
-
-        $(this).attr('title', titulo.replace("\{0\}", reducao));
-    });
+    manager.setupUI('li.proposta');
 });
 
-function tarifaManager () {
-    this.getUserid = function() {
+function tarifaManager() {
+    this.propostas;
+    this.setupUI = function (selector) {
+        var manager = this;
+        this.propostas = $(selector);
+        $('input', selector).button().click(function () {
+            var propostasSelecionadas = manager.getPropostasSelecionadas();
+            manager.updateUI(propostasSelecionadas);
+        });
+
+        var TITULO = "title", TARIFA_REDUCAO = "tarifareducao";
+        $('label', selector).each(function () {
+            var titulo = $(this).attr(TITULO);
+            var tarifaReducao = $(this).attr(TARIFA_REDUCAO);
+
+            var dica = $("span span", this).text();
+
+            $(this).attr(TITULO, titulo.replace("\{0\}", tarifaReducao));
+            $("span span", this).text(dica.replace("\{0\}", tarifaReducao));
+        });
+    }
+
+    this.getUserid = function () {
         var USERID = "userId";
         if (!$.cookie(USERID)) {
             var userIdRandom = Math.floor((Math.random() * Math.pow(10, 13) + 1));
@@ -26,15 +37,15 @@ function tarifaManager () {
         }
         return cId;
     }
-    this.getOpcoes = function () {
-        var opcoes = [0];
-        var OPCAO = "opcao";
-        $('.ui-state-active').each(function (a, el) {
-            opcoes.push($(el).attr(OPCAO));
+    this.getPropostasSelecionadas = function () {
+        var propostasSelecionadas = [];
+        var PROPOSTA = "opcao";
+        $('.ui-state-active', this.propostas).each(function (a, el) {
+            propostasSelecionadas.push($(el).attr(PROPOSTA));
         });
-        return opcoes;
+        return propostasSelecionadas;
     }
-    this.calculaTarifa = function(opcoes) {
+    this.calculaTarifa = function (opcoes) {
         var sum = 0;
         var TARIFAREDUCAO = "tarifaReducao";
         $('.ui-state-active').each(function (a, el) {
@@ -61,10 +72,10 @@ function tarifaManager () {
         var zero = String(cents).length == 1 ? cents + '0' : cents;
 
         if (inteiro < 0 || cents < 0) {
-            return "0.00";
+            return "0,00";
         }
 
-        return inteiro + '.' + cents;
+        return inteiro + ',' + cents;
     }
 
     function generateFacebookShareLink(ops) {
