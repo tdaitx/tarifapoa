@@ -15,13 +15,9 @@ function tarifaManager() {
 
         var TITULO = "title", TARIFA_REDUCAO = "tarifareducao";
         $('label', selector).each(function () {
-            var titulo = $(this).attr(TITULO);
             var tarifaReducao = $(this).attr(TARIFA_REDUCAO);
-
-            var dica = $("span span", this).text();
-
-            $(this).attr(TITULO, titulo.replace("\{0\}", tarifaReducao));
-            $("span span", this).text(dica.replace("\{0\}", tarifaReducao));
+            var dica = $("span span", this);
+            dica.text(dica.text().replace("\{0\}", tarifaReducao));
         });
     }
 
@@ -61,6 +57,10 @@ function tarifaManager() {
         var urlParam = generateFacebookShareLink(opcoes);
         $("#linkShare").attr("href", urlParam);
         $("#tarifaFinal").html(tarifa);
+        var shareMeta = $("#shareTitle");
+        shareMeta.attr("content", shareMeta.attr("content").replace("\{0\}", tarifa));
+
+
 
         var cId = this.getUserid();
         stat(cId, opcoes.join(","));
