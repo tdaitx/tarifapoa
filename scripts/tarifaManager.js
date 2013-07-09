@@ -4,18 +4,22 @@ $(document).ready(function () {
 });
 
 function tarifaManager() {
+    var PROPOSTA = "opcao";
+    var TARIFAREDUCAO = "tarifaReducao";
+
     this.propostas;
+
     this.setupUI = function (selector) {
         var manager = this;
         this.propostas = $(selector);
         $('input', selector).button().click(function () {
-            var propostasSelecionadas = manager.getPropostasSelecionadas();
-            manager.updateUI(propostasSelecionadas);
+            var selecionadas = manager.getPropostasSelecionadas();
+            manager.updateUI(selecionadas[0], selecionadas[1]);
         });
 
-        var TITULO = "title", TARIFA_REDUCAO = "tarifareducao";
+        var TITULO = "title";
         $('label', selector).each(function () {
-            var tarifaReducao = $(this).attr(TARIFA_REDUCAO);
+            var tarifaReducao = $(this).attr(TARIFAREDUCAO);
             var dica = $("span span", this);
             dica.text(dica.text().replace("\{0\}", tarifaReducao));
         });
@@ -33,26 +37,27 @@ function tarifaManager() {
         }
         return cId;
     }
+
+    // Retorna um vetor de 2 dimensões. A primeira dimensão é uma de opções 
+    //   selecionadas. A segunda dimensão é a soma dos selecionados.
     this.getPropostasSelecionadas = function () {
-        var propostasSelecionadas = [0];
-        var PROPOSTA = "opcao";
+        var selecionadas = [];
+        var propostas = [];
+        var soma = 0;
+        
         $('.ui-state-active', this.propostas).each(function (a, el) {
-            propostasSelecionadas.push($(el).attr(PROPOSTA));
+            propostas.push($(el).attr(PROPOSTA));
+            soma += Number( $(el).attr(TARIFAREDUCAO) );
         });
-        return propostasSelecionadas;
-    }
-    this.calculaTarifa = function (opcoes) {
-        var sum = 0;
-        var TARIFAREDUCAO = "tarifaReducao";
-        $('.ui-state-active').each(function (a, el) {
-            sum += Number($(el).attr(TARIFAREDUCAO));
-        });
-        var tarifa = formatnum(2.85 - sum);
-        return tarifa;
+
+        selecionadas.push(propostas);
+        selecionadas.push(soma);
+
+        return selecionadas;
     }
 
-    this.updateUI = function (opcoes) {
-        var tarifa = this.calculaTarifa(opcoes);
+    this.updateUI = function (opcoes, soma) {
+        var tarifa = formatnum(2.85 - soma);
 
         var urlParam = generateFacebookShareLink(opcoes);
         $("#linkShare").attr("href", urlParam);
@@ -60,22 +65,15 @@ function tarifaManager() {
         var shareMeta = $("#shareTitle");
         shareMeta.attr("content", shareMeta.attr("content").replace("\{0\}", tarifa));
 
-
-
         var cId = this.getUserid();
         stat(cId, opcoes.join(","));
     }
 
     function formatnum(num) {
-        var cents = parseInt((num - parseInt(num)) * 100);
-        var inteiro = parseInt(num - cents / 100);
-        var zero = String(cents).length == 1 ? cents + '0' : cents;
-
-        if (inteiro < 0 || cents < 0) {
-            return "0,00";
-        }
-
-        return inteiro + ',' + zero;
+        if (num<0)
+            return "0.00";
+        else
+            return num.toFixed(2).toString();
     }
 
     function generateFacebookShareLink(ops) {
