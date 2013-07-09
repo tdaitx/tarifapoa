@@ -7,19 +7,6 @@
     background-color: #fdffd7;
 }
 
-/* * */
-.tmp {
-    -moz-user-select: -moz-none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    /*
-     Introduced in IE 10.
-     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-   */
-    -ms-user-select: none;
-    user-select: none;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -35,14 +22,6 @@
     float: right;
 }
 
-.align-left {
-    text-align: left;
-}
-
-.align-right {
-    text-align: right;
-}
-
 /* basic grid system
 ----------------------------------------------------------*/
 .row {
@@ -51,64 +30,70 @@
     width: 100%;
     min-height: 30px;
     -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-    .row [class*="span"] {
-        display: block;
-        float: left;
-    }
+.row [class*="span"] {
+    display: block;
+    float: left;
+}
 
-    .row .span12 {
-        width: 100%;
-    }
+.row .span12 {
+    width: 100%;
+}
 
-    .row .span11 {
-        width: 91.45299145299145%;
-    }
+.row .span11 {
+    width: 91.45299145299145%;
+}
 
-    .row .span10 {
-        width: 82.90598290598291%;
-    }
+.row .span10 {
+    width: 82.90598290598291%;
+}
 
-    .row .span9 {
-        width: 74.35897435897436%;
-    }
+.row .span9 {
+    width: 74.35897435897436%;
+}
 
-    .row .span8 {
-        width: 65.81196581196582%;
-    }
+.row .span8 {
+    width: 65.81196581196582%;
+}
 
-    .row .span7 {
-        width: 57.26495726495726%;
-    }
+.row .span7 {
+    width: 57.26495726495726%;
+}
 
-    .row .span6 {
-        width: 48.717948717948715%;
-    }
+.row .span6 {
+    width: 48.717948717948715%;
+}
 
-    .row .span5 {
-        width: 40.17094017094017%;
-    }
+.row .span5 {
+    width: 40.17094017094017%;
+}
 
-    .row .span4 {
-        width: 31.623931623931625%;
-    }
+.row .span4 {
+    width: 31.623931623931625%;
+}
 
-    .row .span3 {
-        width: 23.076923076923077%;
-    }
+.row .span3 {
+    width: 23.076923076923077%;
+}
 
-    .row .span2 {
-        width: 14.52991452991453%;
-    }
+.row .span2 {
+    width: 14.52991452991453%;
+}
 
-    .row .span1 {
-        width: 5.982905982905983%;
-    }
+.row .span1 {
+    width: 5.982905982905983%;
+}
 
 /* main layout
 ----------------------------------------------------------*/
-.content-wrapper {
+header {
+    background-color: rgba(0,100,0, 0.05);
+    padding: 10px;
+}
+
+.content {
     /* for debug: */
     /*background-color: rgba(0,0,0,0.1);*/
     color: #577728;
@@ -120,18 +105,19 @@
 }
 
 #logo {
-    background-image: url("../images/logo.png");
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 137px;
+    /*background-image: url("../images/logo.png");
+    background-repeat: no-repeat;*/
     display: block;
-    margin-bottom: 10px;
 }
 
+#upperblock, #lowerblock {  
+    /*background-color: rgba(100,0,0, 0.05);*/
+    text-align: right;   
+}
 
 .text1 {
-    line-height: 60px;
-    font-size: 18.8pt;
+    line-height: 20px;
+    font-size: 17pt;
 }
 
 .text2 {
@@ -141,12 +127,12 @@
 }
 
 .text3 {
-    font-size: 39.53pt;
+    font-size: 33pt;
 }
 
 .text-price {
     font-size: 94.39pt;
-    line-height: 90px;
+    line-height: 100px;
     display: inline-block;
     /*vertical-align: middle;*/
 }
@@ -162,64 +148,192 @@ ul {
     text-transform: lowercase;
 }
 
+span.underline { 
+    color: rgba(87, 119, 40, 0.3); 
+    text-decoration: underline; 
+} 
+
 label {
-    padding: 5px;
+    color: rgb(87, 119, 40);
+    text-decoration: none; 
+
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+
+    cursor: pointer;
+        
+    padding: 5px;    
+    padding-left: 30px;
     background-image: url("../images/bullet.png");
     background-repeat: no-repeat;
     background-position: 5px center;
-    padding-left: 30px;
+}
+    
+
+label.ui-state-default span span {
+    font-size: 70%;
+    line-height: 0;
+    display: none;
+    text-transform: none;
+    margin-left: 10px;
+    padding: 0 5px;
+}
+label.ui-state-active {
+    background-color: #1e7d09;
+    color: #fdffd7;
+}
+label.ui-state-active span span {
+    color: #577728;
 }
 
-    label.ui-state-default span span {
-        display: none;
-        text-transform: none;
-        margin-left: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
 
+span.underline:hover { 
+    color: rgba(87, 119, 40, 0.7); 
+} 
 
-    label.ui-state-hover span span {
-        background-color: #99FF99;
-    }
+label.ui-state-active {
+    background-image: url("../images/bullet_marked.png");
+    background-position: 0px center;
+    
+    background-color: #1e7d09;
+    color: #fdffd7;
 
-    label.ui-state-hover span span {
-        display: inline;
-    }
+    -moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
 
-    label.ui-state-active {
-        background-color: #1e7d09;
-        color: #fdffd7;
-    }
-
-        label.ui-state-active span span {
-            color: #577728;
-        }
 
 #optionsList {
-    margin-top: 20px;
+    padding-top: 20px;
     position: relative;
 }
 
-#resultPrice {
+#lowerblock {
     padding: 5px;
     position: absolute;
     bottom: 0;
     right: 0;
 }
 
-
 input {
     display: none;
 }
 
-div.share {
-    width: 100%;
-    text-align: right;
-}
+#share a {
+    background-image: url("../images/share-button.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 22px;
 
-div.share a {
-    text-align: right;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+
+    /*text-align: right;*/
     text-decoration: none;
     color: #577728;
+    opacity: 0.8;
+
+    line-height: 30px;
+}
+#share a:hover {
+    opacity: 1;
+}
+
+footer {
+    /*background-color: #1e7d09;*/
+    background-color: rgba(0,100,0, 0.05);
+    color: #fdffd7;
+    padding: 10px 30px 30px 30px;
+    /*padding-top: 50px;*/
+}
+
+
+
+/* rules for Mobile version
+----------------------------------------------------------*/
+
+/* Tablets */
+@media (max-width: 840px)
+{
+    #logo {
+        width: 100%;
+    }
+
+    .content {
+        width: auto;
+        padding: 20px;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 560px)
+{
+    .text2 {
+        display: none;
+    }
+
+    .row [class*="span"] {
+        width: 100%;
+    }
+
+    #upperblock {  
+        text-align: center;
+    }
+
+    #lowerblock {
+        position: relative;
+        float: right;
+    }
+
+    .text-price {
+        font-size: 80pt;
+    }
+
+    ul {
+        line-height: 30px;
+    }
+
+    label {
+        padding: 2px;
+        padding-left: 25px;
+        font-size: 15px;
+    }
+
+}
+
+/* Desktop */
+@media (min-width: 840px)
+{
+    label.ui-state-hover span span {
+    background-color: #99FF99;
+    display: inline;
+}
+
+
+/*
+Sticky Footer by Ryan Fait
+http://ryanfait.com/
+*/
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px; /* the bottom margin is the negative value of the footer's height */
+}
+footer, .push {
+    height: 60px; /* .push must be the same height as .footer */
 }
