@@ -33,58 +33,58 @@
     box-sizing: border-box;
 }
 
-.row [class*="span"] {
-    display: block;
-    float: left;
-}
+    .row [class*="span"] {
+        display: block;
+        float: left;
+    }
 
-.row .span12 {
-    width: 100%;
-}
+    .row .span12 {
+        width: 100%;
+    }
 
-.row .span11 {
-    width: 91.45299145299145%;
-}
+    .row .span11 {
+        width: 91.45299145299145%;
+    }
 
-.row .span10 {
-    width: 82.90598290598291%;
-}
+    .row .span10 {
+        width: 82.90598290598291%;
+    }
 
-.row .span9 {
-    width: 74.35897435897436%;
-}
+    .row .span9 {
+        width: 74.35897435897436%;
+    }
 
-.row .span8 {
-    width: 65.81196581196582%;
-}
+    .row .span8 {
+        width: 65.81196581196582%;
+    }
 
-.row .span7 {
-    width: 57.26495726495726%;
-}
+    .row .span7 {
+        width: 57.26495726495726%;
+    }
 
-.row .span6 {
-    width: 48.717948717948715%;
-}
+    .row .span6 {
+        width: 48.717948717948715%;
+    }
 
-.row .span5 {
-    width: 40.17094017094017%;
-}
+    .row .span5 {
+        width: 40.17094017094017%;
+    }
 
-.row .span4 {
-    width: 31.623931623931625%;
-}
+    .row .span4 {
+        width: 31.623931623931625%;
+    }
 
-.row .span3 {
-    width: 23.076923076923077%;
-}
+    .row .span3 {
+        width: 23.076923076923077%;
+    }
 
-.row .span2 {
-    width: 14.52991452991453%;
-}
+    .row .span2 {
+        width: 14.52991452991453%;
+    }
 
-.row .span1 {
-    width: 5.982905982905983%;
-}
+    .row .span1 {
+        width: 5.982905982905983%;
+    }
 
 /* main layout
 ----------------------------------------------------------*/
@@ -110,9 +110,9 @@ header {
     display: block;
 }
 
-#upperblock, #lowerblock {  
+#upperblock, #lowerblock {
     /*background-color: rgba(100,0,0, 0.05);*/
-    text-align: right;   
+    text-align: right;
 }
 
 .text1 {
@@ -148,64 +148,60 @@ ul {
     text-transform: lowercase;
 }
 
-span.underline { 
-    color: rgba(87, 119, 40, 0.3); 
-    text-decoration: underline; 
-} 
+span.underline {
+    color: rgba(87, 119, 40, 0.3);
+    text-decoration: underline;
+}
 
 label {
     color: rgb(87, 119, 40);
-    text-decoration: none; 
-
+    text-decoration: none;
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-
     cursor: pointer;
-        
-    padding: 5px;    
+    padding: 5px;
     padding-left: 30px;
     background-image: url("../images/bullet.png");
     background-repeat: no-repeat;
     background-position: 5px center;
 }
-    
-
-label.ui-state-default span span {
-    font-size: 70%;
-    line-height: 0;
-    display: none;
-    text-transform: none;
-    margin-left: 10px;
-    padding: 0 5px;
-}
-label.ui-state-active {
-    background-color: #1e7d09;
-    color: #fdffd7;
-}
-label.ui-state-active span span {
-    color: #577728;
-}
 
 
-span.underline:hover { 
-    color: rgba(87, 119, 40, 0.7); 
-} 
+    label.ui-state-default span span {
+        font-size: 85%;
+        line-height: 0;
+        display: none;
+        text-transform: none;
+        margin-left: 10px;
+        padding: 0 5px;
+    }
+
+    label.ui-state-active {
+        background-color: #1e7d09;
+        color: #fdffd7;
+    }
+
+        label.ui-state-active span span {
+            color: #577728;
+        }
+
+
+span.underline:hover {
+    color: rgba(87, 119, 40, 0.7);
+}
 
 label.ui-state-active {
     background-image: url("../images/bullet_marked.png");
     background-position: 0px center;
-    
     background-color: #1e7d09;
     color: #fdffd7;
-
     -moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
@@ -233,22 +229,20 @@ input {
     background-repeat: no-repeat;
     background-position: right center;
     padding-right: 22px;
-
     -webkit-transition: opacity 0.2s ease-in-out;
     -moz-transition: opacity 0.2s ease-in-out;
     -o-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
-
     /*text-align: right;*/
     text-decoration: none;
     color: #577728;
     opacity: 0.8;
-
     line-height: 30px;
 }
-#share a:hover {
-    opacity: 1;
-}
+
+    #share a:hover {
+        opacity: 1;
+    }
 
 footer {
     /*background-color: #1e7d09;*/
@@ -264,8 +258,7 @@ footer {
 ----------------------------------------------------------*/
 
 /* Tablets */
-@media (max-width: 840px)
-{
+@media (max-width: 840px) {
     #logo {
         width: 100%;
     }
@@ -277,8 +270,7 @@ footer {
 }
 
 /* Smartphones */
-@media (max-width: 560px)
-{
+@media (max-width: 560px) {
     .text2 {
         display: none;
     }
@@ -287,7 +279,7 @@ footer {
         width: 100%;
     }
 
-    #upperblock {  
+    #upperblock {
         text-align: center;
     }
 
@@ -309,31 +301,68 @@ footer {
         padding-left: 25px;
         font-size: 15px;
     }
-
 }
 
 /* Desktop */
-@media (min-width: 840px)
-{
+@media (min-width: 840px) {
     label.ui-state-hover span span {
-    background-color: #99FF99;
-    display: inline;
-}
+        background-color: #99FF99;
+        display: inline;
+    }
 
 
-/*
+    /*
 Sticky Footer by Ryan Fait
 http://ryanfait.com/
 */
-html, body {
-    height: 100%;
-}
-.wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -60px; /* the bottom margin is the negative value of the footer's height */
-}
-footer, .push {
-    height: 60px; /* .push must be the same height as .footer */
-}
+    html, body {
+        height: 100%;
+    }
+
+    .wrapper {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -60px; /* the bottom margin is the negative value of the footer's height */
+    }
+
+    footer, .push {
+        height: 60px; /* .push must be the same height as .footer */
+    }
+
+    .detalhe p {
+        padding: 10px;
+        margin-left: 10px;
+        width: 500px;
+        text-transform: none;
+    }
+
+    h2 {
+        margin-left: 10px;
+    }
+
+    h3 {
+        margin-left: 10px;
+    }
+
+    ul.detalhe {
+        line-height: 20px;
+        list-style-type: disc;
+        text-transform: none;
+        margin: 0px;
+        padding: 0px;
+        margin-left:40px;
+
+    }
+
+    h4 {
+        color: darkgreen;
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+
+
+    #detalhe {
+        font-family: Arial;
+        font-size: 12px;
+    }
