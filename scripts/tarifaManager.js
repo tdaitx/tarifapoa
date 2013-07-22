@@ -21,7 +21,7 @@ function tarifaManager() {
         $('label', selector).each(function () {
             var tarifaReducao = $(this).attr(TARIFAREDUCAO);
             var dica = $("span span", this);
-            dica.text(dica.text().replace("\{0\}", tarifaReducao));
+            dica.text(dica.text().replace("\{0\}", Math.abs(tarifaReducao)));
         });
     }
 
@@ -83,7 +83,7 @@ function tarifaManager() {
         var url = urlBase + "p=" + paramPropostab64;
         var urlUriEncoded = encodeURIComponent(url);
         var finalUrl = "https://www.facebook.com/sharer/sharer.php?u=" + urlUriEncoded;
-        console.log(finalUrl + " em " + url);
+        cons(finalUrl + " em " + url);
         return finalUrl;
     }
 
@@ -93,5 +93,12 @@ function tarifaManager() {
             .replace("\{1\}", ops)
             );
 
+    }
+}
+
+
+function cons(msg) {
+    if (console) {
+        console.log(msg);
     }
 }
