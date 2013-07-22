@@ -345,7 +345,7 @@ http://ryanfait.com/
         margin-left: 10px;
     }
 
-    ul.detalhe {
+    .detalhe ul {
         line-height: 20px;
         list-style-type: disc;
         text-transform: none;
