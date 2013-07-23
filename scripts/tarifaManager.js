@@ -86,7 +86,7 @@ function tarifaManager() {
             soma += Number($(el).attr(TARIFAREDUCAO));
         });
 
-        selecionadas.push(propostas);
+        selecionadas.push(propostas.sort());
         selecionadas.push(soma);
 
         return selecionadas;
