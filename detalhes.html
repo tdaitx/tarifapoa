@@ -13,16 +13,38 @@
     <script src="scripts/jquery-1.10.1.js"></script>
     <script src="scripts/jquery-ui.js"></script>
     <script src="scripts/jquery.cookie.js"></script>
-    <script src="scripts/tarifaManager.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            cId = getUserid();
+            ops = "detalhes";
+            var post = $('<img src="http://atlanta.inf.ufrgs.br/tarifa/api/stat/{0}/{1}/" style="width:0px;height:0px:"/>'
+             .replace("\{0\}", cId)
+             .replace("\{1\}", ops)
+             );
+        });
+
+       var getUserid = function () {
+            var USERID = "userId";
+            if (!$.cookie(USERID)) {
+                var userIdRandom = Math.floor((Math.random() * Math.pow(10, 13) + 1));
+                $.cookie(USERID, userIdRandom);
+            }
+            var cId = $.cookie(USERID);
+            if (cId == null) {
+                cId = 321;
+            }
+            return cId;
+        }
+    </script>
 </head>
 <body class="detalhe">
     <h2>Sobre a Simulação</h2>
-    <p>Esta simulação é aproximada. Baseia-se em um sistema de simulação criado pelo blog Discutindo Porto Alegre. Tanto a ferramenta de simulação quanto detalhes do funcionamento do cálculo e do sistema de ônibus <a target="_blank" href="http://discutindopoa.blogspot.com.br/"> podem ser obtidos aqui clicando aqui</a>.</p>
+    <p>Esta simulação é aproximada. Baseia-se em um sistema de simulação criado pelo blog Discutindo Porto Alegre. Tanto a ferramenta de simulação quanto detalhes do funcionamento do cálculo e do sistema de ônibus <a target="_blank" href="http://discutindopoa.blogspot.com.br/">podem ser obtidos aqui clicando aqui</a>.</p>
     <p>As ações usadas nesta simulação foram calculadas isoladamente. Para uma proposta mais abrangente para o sistema de transporte de Porto Alegre, <a target="_blank" href="https://docs.google.com/file/d/0BwiBOJpVdAsIeXJZWi1SN0VCVHc/edit?usp=sharing">clique aqui</a></p>
 
     <h3>Critérios Adotados</h3>
     <p>Muitos dos dados aqui expostos não são tão diretos quanto parecem. Abaixo, são explicados com mais detalhes quais critérios adotamos para calcular cada um dos itens.</p>
-    
+
     <h4>Isentar Impostos</h4>
     <p>Hoje já não temos mais impostos diretos sobre o sistema, após a desoneração do ISSQN pela prefeitura e o PIS/ COFINS pelo governo federal. Foram, entretanto, removidas uma taxa e um imposto indireto:</p>
     <ul class="detalhe">
@@ -32,14 +54,14 @@
 
     <h4>Implantar Sistema Automatizado Sem Cobradores</h4>
     <p>Folha dos empregados é hoje responsável por 45,48% do custo da passagem. Nesta simulação, foram consideradas a redução do percentual de cobradores e de fiscais para 0%. Não foi alterada a quantidade de motoristas. </p>
-    
+
     <h4>Retirar Isenção para Idosos</h4>
     <p>Os idosos (e outras categorias de isentos) recebem hoje 100% de isenção de tarifa. Para este cenário, aumentamos o valor da tarifa para o valor pago por um usuário comum, mas consideramos uma queda de uso desta categoria para 20% dos usuários de hoje. Esta queda é alta, pois muitos idosos hoje usam o sistema de forma intensa apenas pelo preço, andando muitas vezes poucas quadras. Considera-se que eles não farão mais estas viagens ou as farão a pé ou de carro.</p>
     <p>Entretanto, é importante destacar que esta isenção é uma legislação em nível federal, criada pelo Estatudo do Idoso (<a target="_blank" href="http://bd.camara.gov.br/bd/bitstream/handle/bdcamara/763/estatuto_idoso_5ed.pdf">Lei 10.741/03 </a>). Assim, esta isenção pode ser derrubada apenas em nível federal.</p>
 
     <h4>Retirar Desconto de Estudante</h4>
     <p>Os estudantes possuem hoje o benefício de 50% de desconto na passagem. Para este cenário, aumentamos o valor da tarifa para o valor pago por um usuário comum, mas consideramos uma queda para 70% dos usuários de hoje. </p>
-    
+
     <h4>Instalar Ar-Condicionado em Todos os Carros</h4>
     <p>Para o cálculo do impacto do ar-condicionado, foram consideradas as seguintes premissas:</p>
     <ul>
@@ -53,7 +75,7 @@
         <li>Combustíveis: Aumento do custo por quilômetro de R$0,92 para R$ 1,15, aumento de 25%.</li>
         <li>Frota: Aumento do custo da frota em 14%.</li>
     </ul>
-    
+
     <h4>Retirar o Dia de Passe Livre</h4>
     <p>Nos dias de passe livre, nenhum usuário paga a arifa. Para este cenário, aumentamos o valor da segunda tarifa para o valor pago por um usuário comum, mas consideramos uma queda para 40% dos usuários de hoje. Esta redução torna o número de bilhetes equivalente ao vendido em um dia comum.</p>
 
