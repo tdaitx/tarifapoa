@@ -351,8 +351,7 @@ http://ryanfait.com/
         text-transform: none;
         margin: 0px;
         padding: 0px;
-        margin-left:40px;
-
+        margin-left: 40px;
     }
 
     h4 {
@@ -363,6 +362,15 @@ http://ryanfait.com/
 
 
     #detalhe {
-        font-family: Arial;
-        font-size: 12px;
+        padding-top: 10px;
+        color: #577728;
+    }
+
+    .linksOutros a:visited, .linksOutros a:link {
+        color: #577728;
+        text-decoration: none;
+    }
+
+    .linksOutros a:hover {
+        color: #668A2F;
     }
