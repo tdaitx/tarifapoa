@@ -25,7 +25,7 @@ function tarifaManager() {
             dica.text(dica.text().replace("\{0\}", Math.abs(tarifaReducao)));
         });
 
-        var urlParam = Base64.decode(window.location.search.substring(4));
+        var urlParam = Base64.decode(window.location.search.substring(3));
         if (urlParam != "") {
             var optOld = urlParam.split(',');
             this.setPropostasSelecionadas(optOld);
@@ -95,7 +95,7 @@ function tarifaManager() {
         cons(ops);
         var paramPropostab64 = btoa(ops.join(","));
 
-        var urlBase = "http://matehackers.github.io/tarifa-teste/index.html?";
+        var urlBase = "http://matehackers.github.io/tarifa-teste/m/u/" + paramPropostab64.html +"?";
         var url = urlBase + "p=" + paramPropostab64;
         var urlUriEncoded = encodeURIComponent(url);
         var finalUrl = "https://www.facebook.com/sharer/sharer.php?u=" + urlUriEncoded;
