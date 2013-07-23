@@ -49,7 +49,7 @@ function tarifaManager() {
     //   selecionadas. A segunda dimensão é a soma dos selecionados.
     this.getPropostasSelecionadas = function () {
         var selecionadas = [];
-        var propostas = [];
+        var propostas = ["0"];
         var soma = 0;
 
         $('.ui-state-active', this.propostas).each(function (a, el) {
@@ -92,8 +92,9 @@ function tarifaManager() {
     }
 
     function generateFacebookShareLink(ops) {
+        cons(ops);
         var paramPropostab64 = Base64.encode(ops.join(","));
-        var v = 1;
+        var v = 2;
 
         var urlBase = "http://matehackers.github.io/tarifa-teste/m/u/" + paramPropostab64 + ".html?";
         var url = urlBase + "p=" + paramPropostab64;
