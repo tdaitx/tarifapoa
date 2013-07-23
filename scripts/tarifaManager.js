@@ -11,6 +11,7 @@ function tarifaManager() {
 
     this.setupUI = function (selector) {
         var manager = this;
+        stat(this.getUserid(), "start");
 
         this.propostas = $(selector);
         $('input', selector).button().click(function () {
@@ -65,7 +66,7 @@ function tarifaManager() {
 
     this.setPropostasSelecionadas = function (selecionadas) {
         $(this.propostas).each(function (a, el) {
-            if ($.inArray(String(a+1), selecionadas) != -1) {
+            if ($.inArray(String(a + 1), selecionadas) != -1) {
                 $('input', el).click();
             }
         });
@@ -73,9 +74,11 @@ function tarifaManager() {
 
     this.updateUI = function (opcoes, soma) {
         var tarifa = formatnum(2.80 - soma);
-
+        var manager = this;
         var urlParam = generateFacebookShareLink(opcoes);
-        $("#linkShare").attr("href", urlParam);
+        $("#linkShare").attr("href", urlParam).click(function () {
+            stat(manager.getUserid(), "share");
+        });
         $("#tarifaFinal").html(tarifa);
         var shareMeta = $("#shareTitle");
         shareMeta.attr("content", shareMeta.attr("content").replace("\{0\}", tarifa));
@@ -108,7 +111,6 @@ function tarifaManager() {
             .replace("\{0\}", cId)
             .replace("\{1\}", ops)
             );
-
     }
 }
 
