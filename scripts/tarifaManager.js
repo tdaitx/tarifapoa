@@ -31,6 +31,9 @@ function tarifaManager() {
             var optOld = urlParam.split(',');
             this.setPropostasSelecionadas(optOld);
         }
+
+        var selecionadas = manager.getPropostasSelecionadas();
+        manager.updateUI(selecionadas[0], selecionadas[1]);
     }
 
     this.getUserid = function () {
