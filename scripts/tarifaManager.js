@@ -93,6 +93,7 @@ function tarifaManager() {
 
     function generateFacebookShareLink(ops) {
         var paramPropostab64 = Base64.encode(ops.join(","));
+        var v = 1;
 
         var urlBase = "http://matehackers.github.io/tarifa-teste/m/u/" + paramPropostab64 + ".html?";
         var url = urlBase + "p=" + paramPropostab64;
