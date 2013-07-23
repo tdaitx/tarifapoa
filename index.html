@@ -1,143 +1,149 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <meta property="og:image" content="http://matehackers.github.io/tarifapoa/images/share_icon.jpg" />
     <meta id="shareTitle" property="og:title" content="Proposta de Transporte Público Porto Alegre" />
     <meta property="og:description" content="Porto Alegre" />
-	<title>Proposta Transporte Público</title>
-	<link href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css'>
-	<link href="stylesheets/site.css" rel="stylesheet" />
+    <title>Proposta Transporte Público</title>
+    <link href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css'>
+    <link href="stylesheets/site.css" rel="stylesheet" />
     <link rel="shortcut icon" href="http://matehackers.github.io/tarifapoa/favicon.ico" />
-	<script src="scripts/jquery-1.10.1.js"></script>
-	<script src="scripts/jquery-ui.js"></script>
-	<script src="scripts/jquery.cookie.js"></script>
-	<script src="scripts/tarifaManager.js"></script>
+    <script src="scripts/jquery-1.10.1.js"></script>
+    <script src="scripts/jquery-ui.js"></script>
+    <script src="scripts/jquery.cookie.js"></script>
+    <script src="scripts/tarifaManager.js"></script>
 </head>
 
 <body>
-	<div class="wrapper">
-		<header>
-			<center>
+    <div class="wrapper">
+        <header>
+            <center>
 				<img src="images/logo.png" id="logo">
 			</center>
-		</header>
+        </header>
 
-		<div class="content">
+        <div class="content">
 
-			<div id="upperblock">
-				<div class="row">
-					<div class="span6">
-						<div class="text1">atualmente, a passagem de ônibus custa</div>
-					</div>
-				</div>
+            <div id="upperblock">
+                <div class="row">
+                    <div class="span6">
+                        <div class="text1">atualmente, a passagem de ônibus custa</div>
+                    </div>
+                </div>
 
-				<div class="row">
-					<div class="span6">
-						<p>
-							<span class="text-rs">R$</span>
-							<span class="text-price">2,80</span>
-						</p>
-						<div class="text3 ">e se:</div>
-					</div>
+                <div class="row">
+                    <div class="span6">
+                        <p>
+                            <span class="text-rs">R$</span>
+                            <span class="text-price">2,80</span>
+                        </p>
+                        <div class="text3 ">e se:</div>
+                    </div>
 
-					<div class="span6">
-						<div class="text2">
-							vários fatores influenciam nessa tarifa.<br>
-							fizemos alguns cálculos para comparar<br>
-							o quanto cada item afeta no preço final. <br>
-							faça a sua simulação
-						</div>
-					</div>
+                    <div class="span6">
+                        <div class="text2">
+                            vários fatores influenciam nessa tarifa.<br>
+                            fizemos alguns cálculos para comparar<br>
+                            o quanto cada item afeta no preço final.
+                            <br>
+                            faça a sua simulação
+                        </div>
+                    </div>
 
-				</div>
-			</div>
+                </div>
+            </div>
 
 
-			<div class="row" id="optionsList">
-				<div class="span12">
-					<ul id="propostasOrdenadas">
-						<li class="proposta" opcaox="1">
-							<input type="checkbox" id="opIsentarImposto" class="opcao" />
-							<label for="opIsentarImposto" title="clique para saber o efeito dessa ação" tarifareducao="0.16" opcao="1">Isentar impostos
+            <div class="row" id="optionsList">
+                <div class="span12">
+                    <ul id="propostasOrdenadas">
+                        <li class="proposta" opcaox="1">
+                            <input type="checkbox" id="opIsentarImposto" class="opcao" />
+                            <label for="opIsentarImposto" title="clique para saber o efeito dessa ação" tarifareducao="0.16" opcao="1">
+                                Isentar impostos
 								<span>reduz a passagem em R${0}</span>
-							</label>
-						</li>
-						<li class="proposta" opcaox="2">
-							<input type="checkbox" id="opCatracaAutomatica" class="opcao" />
-							<label for="opCatracaAutomatica" title="clique para saber o efeito dessa ação" tarifareducao="0.45" opcao="2">Sistema automatizado sem cobradores
+                            </label>
+                        </li>
+                        <li class="proposta" opcaox="2">
+                            <input type="checkbox" id="opCatracaAutomatica" class="opcao" />
+                            <label for="opCatracaAutomatica" title="clique para saber o efeito dessa ação" tarifareducao="0.45" opcao="2">
+                                Sistema automatizado sem cobradores
 								<span>reduz a passagem em R${0}</span>
-							</label>
-						</li>
-						<li class="proposta" opcaox="3">
-							<input type="checkbox" id="opSemIsentos" class="opcao" />
-							<label for="opSemIsentos" title="clique para saber o efeito dessa ação" tarifareducao="0.11" opcao="3">Retirar isenções para idosos
+                            </label>
+                        </li>
+                        <li class="proposta" opcaox="3">
+                            <input type="checkbox" id="opSemIsentos" class="opcao" />
+                            <label for="opSemIsentos" title="clique para saber o efeito dessa ação" tarifareducao="0.11" opcao="3">
+                                Retirar isenções para idosos
 								<span>reduz a passagem em R${0}</span>
-							</label>
-						</li>
-						<li class="proposta" opcaox="4">
-							<input type="checkbox" id="opSemEstudanteIsento" class="opcao" />
-							<label for="opSemEstudanteIsento" title="clique para saber o efeito dessa ação" tarifareducao="0.07" opcao="4">Retirar desconto de estudante
+                            </label>
+                        </li>
+                        <li class="proposta" opcaox="4">
+                            <input type="checkbox" id="opSemEstudanteIsento" class="opcao" />
+                            <label for="opSemEstudanteIsento" title="clique para saber o efeito dessa ação" tarifareducao="0.07" opcao="4">
+                                Retirar desconto de estudante
 								<span>reduz a passagem em R${0}</span>
-							</label>
-						</li>
-						<li class="proposta" opcaox="5">
-							<input type="checkbox" id="opArCondicionadoEmTodaFrota" class="opcao" />
-							<label for="opArCondicionadoEmTodaFrota" title="clique para saber o efeito dessa ação" tarifareducao="-0.18" opcao="5">Ar-condicionado em todos os carros
+                            </label>
+                        </li>
+                        <li class="proposta" opcaox="5">
+                            <input type="checkbox" id="opArCondicionadoEmTodaFrota" class="opcao" />
+                            <label for="opArCondicionadoEmTodaFrota" title="clique para saber o efeito dessa ação" tarifareducao="-0.18" opcao="5">
+                                Ar-condicionado em todos os carros
 								<span>aumenta a passagem em R${0}</span>
-							</label>
-						</li>
-						<li class="proposta" opcaox="6">
-							<input type="checkbox" id="opSemDiaDoPasseLivre" class="opcao" />
-							<label for="opSemDiaDoPasseLivre" title="clique para saber o efeito dessa ação" tarifareducao="0.04" opcao="6">Retirar o dia do passe livre
+                            </label>
+                        </li>
+                        <li class="proposta" opcaox="6">
+                            <input type="checkbox" id="opSemDiaDoPasseLivre" class="opcao" />
+                            <label for="opSemDiaDoPasseLivre" title="clique para saber o efeito dessa ação" tarifareducao="0.04" opcao="6">
+                                Retirar o dia do passe livre
 								<span>reduz a passagem em R${0}</span>
-							</label>
-						</li>
-						<li class="proposta" opcaox="7">
-							<input type="checkbox" id="opSemPassagemIntegrada" class="opcao" />
-							<label for="opSemPassagemIntegrada" title="clique para saber o efeito dessa ação" tarifareducao="0.17" opcao="7" class="opcao">Retirar a passagem integrada
+                            </label>
+                        </li>
+                        <li class="proposta" opcaox="7">
+                            <input type="checkbox" id="opSemPassagemIntegrada" class="opcao" />
+                            <label for="opSemPassagemIntegrada" title="clique para saber o efeito dessa ação" tarifareducao="0.17" opcao="7" class="opcao">
+                                Retirar a passagem integrada
 								<span>reduz a passagem em R${0}</span>
-							</label>
-						</li>
-						<li class="proposta" opcaox="8">
-							<input type="checkbox" id="opEmpresaComLucroZero" class="opcao" />
-							<label for="opEmpresaComLucroZero" title="clique para saber o efeito dessa ação" tarifareducao="0.28" opcao="8">Tirar lucro das empresas
+                            </label>
+                        </li>
+                        <li class="proposta" opcaox="8">
+                            <input type="checkbox" id="opEmpresaComLucroZero" class="opcao" />
+                            <label for="opEmpresaComLucroZero" title="clique para saber o efeito dessa ação" tarifareducao="0.28" opcao="8">
+                                Tirar lucro das empresas
 								<span>reduz a passagem em R${0}</span>
-							</label>
-						</li>
-					</ul>              
-				</div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
 
-				<div id="lowerblock">
-					a passagem custaria
+                <div id="lowerblock">
+                    a passagem custaria
 					<p>
-						<span class="text-rs">R$</span>
-						<span id="tarifaFinal" class="text-price">2,85</span>
-					</p>
+                        <span class="text-rs">R$</span>
+                        <span id="tarifaFinal" class="text-price">2,85</span>
+                    </p>
 
-					<div id="share">
-						<a target="_blank" href="" id="linkShare">
-							compartilhe a sua proposta >
-						</a>                
-					</div>
+                    <div id="share">
+                        <a target="_blank" href="" id="linkShare">compartilhe a sua proposta >
+                        </a>
+                    </div>
                     <div id="detalhe" class="linksOutros">
-						<a target="_blank" href="/tarifapoa/detalhes.html" id="A1" >
-							sobre
-						</a>      
+                        <a target="_blank" href="/tarifapoa/detalhes.html">sobre
+                        </a>
                         |
-						<a target="_blank" href="mailto:oi@ccdpoa.com.br" id="A2">
-							contato
-						</a>      
-					</div>
-				</div>
+						<a href="mailto:oi@ccdpoa.com.br">contato
+                        </a>
+                    </div>
+                </div>
 
-			</div>
+            </div>
 
-		</div>
-	</div>
+        </div>
+    </div>
 
-<!-- 	<footer class="row">
+    <!-- 	<footer class="row">
 		<center>
 			<div id="share">
 				<a target="_blank" href="" id="linkShare">
