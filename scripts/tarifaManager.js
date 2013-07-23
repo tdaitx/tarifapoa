@@ -92,10 +92,9 @@ function tarifaManager() {
     }
 
     function generateFacebookShareLink(ops) {
-        cons(ops);
-        var paramPropostab64 = btoa(ops.join(","));
+        var paramPropostab64 = Base64.encode(ops.join(","));
 
-        var urlBase = "http://matehackers.github.io/tarifa-teste/m/u/" + paramPropostab64.html +"?";
+        var urlBase = "http://matehackers.github.io/tarifa-teste/m/u/" + paramPropostab64 + ".html?";
         var url = urlBase + "p=" + paramPropostab64;
         var urlUriEncoded = encodeURIComponent(url);
         var finalUrl = "https://www.facebook.com/sharer/sharer.php?u=" + urlUriEncoded;
