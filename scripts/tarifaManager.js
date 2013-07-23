@@ -11,7 +11,14 @@ function tarifaManager() {
 
     this.setupUI = function (selector) {
         var manager = this;
-        stat(this.getUserid(), "start");
+
+        opcoesTotais = $.map($('li.proposta'), function (a) { return ($(a).attr('opcaoX')); });
+        var opcoesArranged = this.getRandomPermutation(opcoesTotais);
+        stat(this.getUserid(), "start=" + opcoesArranged.join());
+        for (var i = 1; i < opcoesArranged.length + 1; i++) {
+            $('#propostasOrdenadas').append($("li[opcaoX='" + opcoesArranged[i] + "']"));
+        }
+
 
         this.propostas = $(selector);
         $('input', selector).button().click(function () {
@@ -47,6 +54,24 @@ function tarifaManager() {
             cId = 321;
         }
         return cId;
+    }
+
+    this.getRandomPermutation = function (set) {
+        var PERMSETUP = "permSetup";
+        var perm = [];
+        if ($.cookie(PERMSETUP)) {
+            perm = $.cookie(PERMSETUP).split(',');
+        } 
+        if (perm.length == 0){
+            var t = set.length;
+            for (var i = 0; i < t; i++) {
+                var n1 = set[Math.floor(Math.random() * (set.length))];
+                perm.push(n1);
+                set.splice(set.indexOf(n1), 1);
+            }
+            $.cookie(PERMSETUP, perm.join());
+        }
+        return perm;
     }
 
     // Retorna um vetor de 2 dimensões. A primeira dimensão é uma de opções 
@@ -105,7 +130,6 @@ function tarifaManager() {
         var url = urlBase + "p=" + paramPropostab64;
         var urlUriEncoded = encodeURIComponent(url);
         var finalUrl = "https://www.facebook.com/sharer/sharer.php?u=" + urlUriEncoded;
-        cons(finalUrl + " em " + url);
         return finalUrl;
     }
 
