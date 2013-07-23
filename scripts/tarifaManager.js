@@ -127,7 +127,7 @@ function tarifaManager() {
         var v = 2;
 
         var urlBase = "http://matehackers.github.io/tarifapoa/m/u/" + paramPropostab64 + ".html?";
-        var url = urlBase + "p=" + paramPropostab64;
+        var url = urlBase;
         var urlUriEncoded = encodeURIComponent(url);
         var finalUrl = "https://www.facebook.com/sharer/sharer.php?u=" + urlUriEncoded;
         return finalUrl;
