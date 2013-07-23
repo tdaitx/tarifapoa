@@ -92,7 +92,6 @@ function tarifaManager() {
     }
 
     function generateFacebookShareLink(ops) {
-        cons(ops);
         var paramPropostab64 = Base64.encode(ops.join(","));
         var v = 2;
 
