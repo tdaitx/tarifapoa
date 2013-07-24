@@ -6,24 +6,32 @@ $(document).ready(function () {
 function tarifaManager() {
     var PROPOSTA = "opcao";
     var TARIFAREDUCAO = "tarifaReducao";
+    var manager = this;
 
     this.propostas;
 
-    this.setupUI = function (selector) {
-        var manager = this;
+    this.forbidden = [[9, 4]];
 
-        opcoesTotais = $.map($('li.proposta'), function (a) { return ($(a).attr('opcaoX')); });
+    this.setupUI = function (selector) {
+        opcoesTotais = $.map($('li.proposta'), function (a) { return ($(a).attr('opcaox')); });
         var opcoesArranged = this.getRandomPermutation(opcoesTotais);
-        stat(this.getUserid(), "start=" + opcoesArranged.join());
+        var cId = this.getUserid();
+        stat(cId, "start=" + opcoesArranged.join());
         for (var i = 1; i < opcoesArranged.length + 1; i++) {
-            $('#propostasOrdenadas').append($("li[opcaoX='" + opcoesArranged[i] + "']"));
+            $('#propostasOrdenadas').append($("li[opcaox='" + opcoesArranged[i] + "']"));
         }
 
         this.propostas = $(selector);
         $('input', selector).removeAttr("checked");
         $('input', selector).button().removeAttr('disabled').click(function (event) {
             var selecionadas = manager.getPropostasSelecionadas();
+            var forb = manager.checkForbidden(this);
+            for (var i = 0; i < forb.length; i++) {
+                var unOp = $("li[opcaox='" + forb[i] + "'] input:checked");
+                $(unOp).click();
+            }
             manager.updateUI(selecionadas[0], selecionadas[1]);
+            stat(cId, selecionadas[0].join(","));
         });
 
 
@@ -61,7 +69,7 @@ function tarifaManager() {
         var PERMSETUP = "permSetup";
         var perm = [];
         if ($.cookie(PERMSETUP) && ($.cookie(PERMSETUP).length == set.length)){
-                perm = $.cookie(PERMSETUP).split(',');
+            perm = $.cookie(PERMSETUP).split(',');
         }
         if (perm.length == 0) {
             var t = set.length;
@@ -105,6 +113,7 @@ function tarifaManager() {
         var tarifa = formatnum(2.80 - soma);
         var manager = this;
         var urlParam = generateFacebookShareLink(opcoes);
+
         $("#linkShare").attr("href", urlParam).click(function () {
             stat(manager.getUserid(), "share");
         });
@@ -113,7 +122,22 @@ function tarifaManager() {
         shareMeta.attr("content", shareMeta.attr("content").replace("\{0\}", tarifa));
 
         var cId = this.getUserid();
-        stat(cId, opcoes.join(","));
+    }
+
+    this.checkForbidden = function(el){
+        var toExclude = [];
+        var option = $(el).next().attr("opcao");
+        for(var i = 0; i < manager.forbidden.length; i++){
+            var f = manager.forbidden[i].slice(0);
+            var index = $.inArray(Number(option), f);
+            if (index == -1)
+                continue;
+            f.splice(index, 1);
+            for(var j = 0; j < f.length; j++){
+                toExclude.push(f[j]);    
+            }
+        }
+        return toExclude;
     }
 
     function formatnum(num) {
