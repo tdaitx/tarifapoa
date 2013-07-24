@@ -26,12 +26,13 @@ function tarifaManager() {
         $('input', selector).button().removeAttr('disabled').click(function (event) {
             var selecionadas = manager.getPropostasSelecionadas();
             var forb = manager.checkForbidden(this);
+            manager.updateUI(selecionadas[0], selecionadas[1]);
+            stat(cId, selecionadas[0].join(","));
+
             for (var i = 0; i < forb.length; i++) {
                 var unOp = $("li[opcaox='" + forb[i] + "'] input:checked");
                 $(unOp).click();
             }
-            manager.updateUI(selecionadas[0], selecionadas[1]);
-            stat(cId, selecionadas[0].join(","));
         });
 
 
