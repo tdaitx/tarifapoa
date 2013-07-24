@@ -28,12 +28,18 @@ function tarifaManager() {
             var forb = manager.checkForbidden(this);
             manager.updateUI(selecionadas[0], selecionadas[1]);
             stat(cId, selecionadas[0].join(","));
-
+            //$(this).trigger('forbidden', [forb]);
             for (var i = 0; i < forb.length; i++) {
                 var unOp = $("li[opcaox='" + forb[i] + "'] input:checked");
                 $(unOp).click();
             }
         });
+        //    .on('forbidden', function (event, forb) {
+        //    for (var i = 0; i < forb.length; i++) {
+        //        var unOp = $("li[opcaox='" + forb[i] + "'] input:checked");
+        //        $(unOp).click();
+        //    }
+        //});
 
 
         var TITULO = "title";
@@ -69,7 +75,7 @@ function tarifaManager() {
     this.getRandomPermutation = function (set) {
         var PERMSETUP = "permSetup";
         var perm = [];
-        if ($.cookie(PERMSETUP) && ($.cookie(PERMSETUP).length == set.length)){
+        if ($.cookie(PERMSETUP) && ($.cookie(PERMSETUP).length == set.length)) {
             perm = $.cookie(PERMSETUP).split(',');
         }
         if (perm.length == 0) {
@@ -103,8 +109,8 @@ function tarifaManager() {
     }
 
     this.setPropostasSelecionadas = function (selecionadas) {
-        $(this.propostas).each(function (a, el) {
-            if ($.inArray(String(a + 1), selecionadas) != -1) {
+        $.each(this.propostas, function (a, el) {
+            if ($.inArray($(el).attr("opcaox"), selecionadas) != -1) {
                 $('input', el).click();
             }
         });
@@ -125,17 +131,17 @@ function tarifaManager() {
         var cId = this.getUserid();
     }
 
-    this.checkForbidden = function(el){
+    this.checkForbidden = function (el) {
         var toExclude = [];
         var option = $(el).next().attr("opcao");
-        for(var i = 0; i < manager.forbidden.length; i++){
+        for (var i = 0; i < manager.forbidden.length; i++) {
             var f = manager.forbidden[i].slice(0);
             var index = $.inArray(Number(option), f);
             if (index == -1)
                 continue;
             f.splice(index, 1);
-            for(var j = 0; j < f.length; j++){
-                toExclude.push(f[j]);    
+            for (var j = 0; j < f.length; j++) {
+                toExclude.push(f[j]);
             }
         }
         return toExclude;
