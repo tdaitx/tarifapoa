@@ -21,7 +21,7 @@ function tarifaManager() {
 
 
         this.propostas = $(selector);
-        $('input', selector).button().click(function () {
+        $('input', selector).button().mousedown(function () {
             var selecionadas = manager.getPropostasSelecionadas();
             manager.updateUI(selecionadas[0], selecionadas[1]);
         });

@@ -189,7 +189,8 @@ label {
     }
 
         label.ui-state-active span span {
-            color: #577728;
+           color: #fdffd7;
+
         }
 
 
@@ -211,6 +212,7 @@ label.ui-state-active {
 #optionsList {
     padding-top: 20px;
     position: relative;
+    padding-bottom: 45px;
 }
 
 #lowerblock {
@@ -306,7 +308,7 @@ footer {
 /* Desktop */
 @media (min-width: 840px) {
     label.ui-state-hover span span {
-        background-color: #99FF99;
+        background-color: rgba(0,100,0, 0.05);
         display: inline;
     }
 
