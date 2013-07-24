@@ -62,8 +62,8 @@ function tarifaManager() {
         var perm = [];
         if ($.cookie(PERMSETUP)) {
             perm = $.cookie(PERMSETUP).split(',');
-        } 
-        if (perm.length == 0){
+        }
+        if (perm.length == 0) {
             var t = set.length;
             for (var i = 0; i < t; i++) {
                 var n1 = set[Math.floor(Math.random() * (set.length))];
@@ -82,12 +82,12 @@ function tarifaManager() {
         var propostas = ["0"];
         var soma = 0;
         //pppp = $('.ui-state-active').length;
-         $(':checked', this.propostas).next().each(function (a, el) {
-            propostas.push($(el).attr(PROPOSTA));
+        $(':checked', this.propostas).next().each(function (a, el) {
+            propostas.push(Number($(el).attr(PROPOSTA)));
             soma += Number($(el).attr(TARIFAREDUCAO));
         });
 
-        selecionadas.push(propostas.sort());
+        selecionadas.push(propostas.sort(function (a, b) { return a - b }));
         selecionadas.push(soma);
 
         return selecionadas;
