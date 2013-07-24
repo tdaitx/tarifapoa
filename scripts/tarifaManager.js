@@ -60,8 +60,8 @@ function tarifaManager() {
     this.getRandomPermutation = function (set) {
         var PERMSETUP = "permSetup";
         var perm = [];
-        if ($.cookie(PERMSETUP)) {
-            perm = $.cookie(PERMSETUP).split(',');
+        if ($.cookie(PERMSETUP) && ($.cookie(PERMSETUP).length == set.length)){
+                perm = $.cookie(PERMSETUP).split(',');
         }
         if (perm.length == 0) {
             var t = set.length;
