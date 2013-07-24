@@ -21,8 +21,9 @@ function tarifaManager() {
 
 
         this.propostas = $(selector);
-        $('input', selector).button().mousedown(function () {
+        $('input', selector).button().click(function () {
             var selecionadas = manager.getPropostasSelecionadas();
+            cons(selecionadas);
             manager.updateUI(selecionadas[0], selecionadas[1]);
         });
 
@@ -80,7 +81,7 @@ function tarifaManager() {
         var selecionadas = [];
         var propostas = ["0"];
         var soma = 0;
-
+        //pppp = $('.ui-state-active').length;
         $('.ui-state-active', this.propostas).each(function (a, el) {
             propostas.push($(el).attr(PROPOSTA));
             soma += Number($(el).attr(TARIFAREDUCAO));
@@ -107,7 +108,7 @@ function tarifaManager() {
         $("#linkShare").attr("href", urlParam).click(function () {
             stat(manager.getUserid(), "share");
         });
-        $("#tarifaFinal").html(tarifa.replace(".",","));
+        $("#tarifaFinal").html(tarifa.replace(".", ","));
         var shareMeta = $("#shareTitle");
         shareMeta.attr("content", shareMeta.attr("content").replace("\{0\}", tarifa));
 
