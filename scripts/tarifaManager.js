@@ -19,13 +19,13 @@ function tarifaManager() {
             $('#propostasOrdenadas').append($("li[opcaoX='" + opcoesArranged[i] + "']"));
         }
 
-
         this.propostas = $(selector);
-        $('input', selector).button().click(function () {
+        $('input', selector).removeAttr("checked");
+        $('input', selector).button().removeAttr('disabled').click(function (event) {
             var selecionadas = manager.getPropostasSelecionadas();
-            cons(selecionadas);
             manager.updateUI(selecionadas[0], selecionadas[1]);
         });
+
 
         var TITULO = "title";
         $('label', selector).each(function () {
@@ -82,7 +82,7 @@ function tarifaManager() {
         var propostas = ["0"];
         var soma = 0;
         //pppp = $('.ui-state-active').length;
-        $('.ui-state-active', this.propostas).each(function (a, el) {
+         $(':checked', this.propostas).next().each(function (a, el) {
             propostas.push($(el).attr(PROPOSTA));
             soma += Number($(el).attr(TARIFAREDUCAO));
         });
@@ -289,3 +289,4 @@ var Base64 = {
         return string;
     }
 }
+var asd123 = 1;
