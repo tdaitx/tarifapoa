@@ -107,7 +107,7 @@ function tarifaManager() {
         $("#linkShare").attr("href", urlParam).click(function () {
             stat(manager.getUserid(), "share");
         });
-        $("#tarifaFinal").html(tarifa);
+        $("#tarifaFinal").html(tarifa.replace(".",",");
         var shareMeta = $("#shareTitle");
         shareMeta.attr("content", shareMeta.attr("content").replace("\{0\}", tarifa));
 
