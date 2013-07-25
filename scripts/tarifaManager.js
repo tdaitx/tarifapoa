@@ -121,6 +121,10 @@ function tarifaManager() {
         var manager = this;
         var urlParam = generateFacebookShareLink(opcoes);
 
+	if (typeof history != 'undefined') {
+	    history.pushState(null, null, '?f='+ generatePropostaParam(opcoes));
+	}
+
         $("#linkShare").attr("href", urlParam).click(function () {
             stat(manager.getUserid(), "share");
         });
@@ -154,8 +158,13 @@ function tarifaManager() {
             return num.toFixed(2).toString();
     }
 
+    function generatePropostaParam(ops) {
+	return Base64.encode(ops.join(","));
+	// return "http://matehackers.github.io/tarifapoa/?f=" + paramPropostab64;
+    }
+
     function generateFacebookShareLink(ops) {
-        var paramPropostab64 = Base64.encode(ops.join(","));
+        var paramPropostab64 = generatePropostaParam(ops);
         var v = 2;
 
         var urlBase = "http://matehackers.github.io/tarifapoa/m/u/" + paramPropostab64 + ".html?";
