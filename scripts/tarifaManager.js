@@ -1,6 +1,9 @@
 $(document).ready(function () {
     var manager = new tarifaManager();
     manager.setupUI('li.proposta');
+    window.onpopstate = function(event) {
+        manager.setupUI('li.proposta');
+    };
 });
 
 function tarifaManager() {
@@ -121,9 +124,10 @@ function tarifaManager() {
         var manager = this;
         var urlParam = generateFacebookShareLink(opcoes);
 
-	if (typeof history != 'undefined') {
-	    history.pushState(null, null, '?f='+ generatePropostaParam(opcoes));
-	}
+	currentState = {opcoes: opcoes, soma: soma};
+        if (typeof history != 'undefined' && JSON.stringify(history.state) == JSON.stringify(currentState)) {
+            history.pushState(currentState, null, '?f='+ generatePropostaParam(opcoes));
+        }
 
         $("#linkShare").attr("href", urlParam).click(function () {
             stat(manager.getUserid(), "share");
